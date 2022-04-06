@@ -98,7 +98,7 @@ func main() {
 	words = make([]string, wordAmt);
 	fmt.Println("Second we need to enter in words. So enter", wordAmt, "words, please");
 	for i := 0; i < wordAmt; i++ {
-		fmt.Scan(&words[i])
+		fmt.Scan(&words[i]);
 		phrase := strings.Fields(words[i]);
 		for _, word := range phrase {
 			if !isEnglishWord(word) {
@@ -138,24 +138,24 @@ func main() {
 		switch decision {
 			case "letter":
 				fmt.Println("Enter your letter: ");
-				var letter string
-				fmt.Scan(&letter)
-				instances := findLetterInString(letter, wordToGuess)
+				var letter string;
+				fmt.Scan(&letter);
+				instances := findLetterInString(letter, wordToGuess);
 				if len(instances) == 0 {
 					fmt.Println("No instances of", letter)
 					attempts++;
 				} else {
-					fmt.Println("Found instances of", letter)
+					fmt.Println("Found instances of", letter);
 					for i, val := range instances {
-						fmt.Println("Instance", i, "at position no.", val)
+						fmt.Println("Instance", i, "at position no.", val);
 					}
 				}
 			case "word":
 				fmt.Println("Enter your word: ");
 				var word string;
-				fmt.Scan(&word)
+				fmt.Scan(&word);
 				if word == wordToGuess {
-					fmt.Println("Congratulations! You have guessed the word!")
+					fmt.Println("Congratulations! You have guessed the word!");
 					fmt.Println("Mistakes:", attempts);
 					running = false;
 				} else {
@@ -171,11 +171,11 @@ func main() {
 		fmt.Print("-");
 	}
 	if attempts > attemptMax {
-		fmt.Println("GAME OVER")
-		fmt.Println("The word was: ", wordToGuess)
+		fmt.Println("GAME OVER");
+		fmt.Println("The word was: ", wordToGuess);
 	}
 	fmt.Println()
 	if attempts == 10000 {
-		fmt.Println("Nice try.")
+		fmt.Println("Nice try.");
 	}
 }
