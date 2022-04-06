@@ -107,9 +107,9 @@ func main() {
 		fmt.Println("You have a duplicate in your word set.");
 		os.Exit(-1);
 	}
-	fmt.Println("Third, let's choose a mode. Enter easy for 10 attempts, hard for 5 attempts(default is medium for 7 attempts) ")
-	var mode string
-	fmt.Scan(&mode)
+	fmt.Println("Third, let's choose a mode. Enter easy for 10 attempts, hard for 5 attempts(default is medium for 7 attempts) ");
+	var mode string;
+	fmt.Scan(&mode);
 	switch mode {
 		case "easy":
 			attemptMax = 10;
@@ -123,7 +123,7 @@ func main() {
 	for i := 0; i < 50; i++ {
 		fmt.Print("-");
 	}
-	fmt.Println()
+	fmt.Println();
 	var running bool = true;
 	wordToGuess := words[rand.Intn(len(words)-1)];
 	for attempts <= attemptMax && running {
@@ -162,16 +162,16 @@ func main() {
 				attempts = 10000;
 		}
 	}
-	fmt.Println()
+	fmt.Println();
 	for i := 0; i < 50; i++ {
 		fmt.Print("-");
 	}
-	if attempts > attemptMax {
-		fmt.Println("GAME OVER");
-		fmt.Println("The word was: ", wordToGuess);
-	}
-	fmt.Println()
-	if attempts == 10000 {
-		fmt.Println("Nice try.");
+	switch {
+		case attempts > attemptMax:
+			fmt.Println("Game over. The word was", wordToGuess);
+			break;
+		case attempts == 10000:
+			fmt.Println("Nice try.");
+			break;
 	}
 }
