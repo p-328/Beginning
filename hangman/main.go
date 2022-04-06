@@ -10,23 +10,24 @@ import (
 	"unicode"
 	"sort"	
 )
+
 func binarySearch(needle string, haystack []string) bool {
 	sort.Slice(haystack, func (i, j int) bool {
 		return haystack[i] < haystack[j];
 	});
+	
 	low := 0;
 	high := len(haystack) - 1;
 
 	for low <= high{
 		median := (low + high) / 2;
-
 		if haystack[median] < needle {
 			low = median + 1;
 		} else {
 			high = median - 1;
 		}
 	}
-
+	
 	if low == len(haystack) || haystack[low] != needle {
 		return false;
 	}
@@ -48,6 +49,7 @@ func isEnglishWord(s string) bool {
 			}
 		}
 	}
+	
 	return binarySearch(s, wordList);
 }
 func findLetterInString(letter string, s string) []int {
@@ -87,8 +89,8 @@ func main() {
 	fmt.Println();
 	fmt.Println("First: we need to enter the amount of words needed. So, enter the amount of words you want to have in your game.");
 	fmt.Scan(&wordAmt);
-	if wordAmt == 0 {
-		fmt.Println("That ain't a valid amount of words chief, so imma use the default.");
+	if wordAmt <= 10 {
+		fmt.Println("There won't be enough words chief with that amount, so I'm going to use the default.");
 		wordAmt = 20;
 	}
 	words = make([]string, wordAmt);
@@ -98,7 +100,7 @@ func main() {
 		phrase := strings.Fields(words[i]);
 		for _, word := range phrase {
 			if !isEnglishWord(word) {
-				fmt.Println("Imma stop you right there chief, one of your words isn't english.");
+				fmt.Println("I'm going to stop you right there chief, one of your words isn't english.");
 				os.Exit(-1);
 			}
 		}
@@ -118,7 +120,7 @@ func main() {
 		default:
 			break;
 	}
-	fmt.Println("You are ready to go!");
+	fmt.Println("You're ready to go!");
 	fmt.Println("BEGIN!");
 	for i := 0; i < 50; i++ {
 		fmt.Print("-");
@@ -130,7 +132,7 @@ func main() {
 		fmt.Println("You have a few decisions: type word to guess the word, letter to guess a letter");
 		fmt.Println("Enter your decision: ");
 		var decision string;
-		fmt.Scan(&decision)
+		fmt.Scan(&decision);
 		switch decision {
 			case "letter":
 				fmt.Println("Enter your letter: ");
@@ -155,7 +157,7 @@ func main() {
 					fmt.Println("Mistakes:", attempts);
 					running = false;
 				} else {
-					fmt.Println("That ain't it chief");
+					fmt.Println("That's not it chief");
 					attempts++;
 				}
 			default:
