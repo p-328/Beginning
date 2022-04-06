@@ -22,7 +22,7 @@ func binarySearch(needle string, haystack []string) bool {
 
 		if haystack[median] < needle {
 			low = median + 1;
-		}else{
+		} else {
 			high = median - 1;
 		}
 	}
