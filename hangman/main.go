@@ -48,11 +48,7 @@ func isEnglishWord(s string) bool {
 			}
 		}
 	}
-	if binarySearch(s, wordList) {
-		return true;
-	}
-	
-	return false;
+	return binarySearch(s, wordList);
 }
 func findLetterInString(letter string, s string) []int {
 	letter_bytes := []byte(letter);
