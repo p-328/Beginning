@@ -90,7 +90,7 @@ func main() {
 	fmt.Println("First: we need to enter the amount of words needed. So, enter the amount of words you want to have in your game.");
 	fmt.Scan(&wordAmt);
 	if wordAmt <= 10 {
-		fmt.Println("There won't be enough words chief with that amount, so I'm going to use the default.");
+		fmt.Println("There won't be enough words with that amount, so I'm going to use the default.");
 		wordAmt = 20;
 	}
 	words = make([]string, wordAmt);
@@ -100,7 +100,7 @@ func main() {
 		phrase := strings.Fields(words[i]);
 		for _, word := range phrase {
 			if !isEnglishWord(word) {
-				fmt.Println("I'm going to stop you right there chief, one of your words isn't english.");
+				fmt.Println("I'm going to stop you right there, one of your words isn't english.");
 				os.Exit(-1);
 			}
 		}
